@@ -1,0 +1,17 @@
+[Unit]
+Description=NanoHat OLED Rust Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/nanohat-oled-rs
+EnvironmentFile=-/etc/default/nanohat-oled-rs
+ExecStart=/usr/local/bin/nanohat-oled-rs
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
